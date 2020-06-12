@@ -4,8 +4,10 @@ namespace Roguelike
 {
     class Program
     {
+        //Começa o programa
         static void Main(string[] args)
         {
+            //O programa irá analisar se há suficientes argumentos para o jogo
             if(args.Length == 0)
             {
                 Console.WriteLine("Não há argumentos suficientes.");
@@ -30,6 +32,8 @@ namespace Roguelike
                 Console.WriteLine("Bem-vindo ao jogo Roguelike.");
                 Console.WriteLine("Por favor, escolha uma das opcções do menu.");
 
+                //Guarda os números obtidos nos argumentos e converte-os para inteiros
+                //para serem usados mais tarde.
                 int num1 = Int32.Parse(args[1]);
                 int num2 = Int32.Parse(args[3]);
 
@@ -44,6 +48,7 @@ namespace Roguelike
 
                     if(escolha == "1")
                     {
+                        //Escolha do jogo
                         Console.WriteLine();
                         Console.WriteLine("Vamos começar");
                         Game game = new Game(num1, num2);
@@ -53,6 +58,7 @@ namespace Roguelike
                     
                     else if (escolha == "2")
                     {
+                        //Ver pontuações
                         Console.WriteLine();
                         Console.WriteLine("Esta é a tabela de High Scores.");
                         for (int i = 0; i < 9; i++)
@@ -64,6 +70,7 @@ namespace Roguelike
 
                     else if (escolha == "3")
                     {
+                        //Ver regras
                         Console.WriteLine();
                         Console.WriteLine("Estas são as Instructions");
                         Console.WriteLine("1 - O objectivo é sobreviver aos inimigos e ao local onde o player estará.");
@@ -85,6 +92,7 @@ namespace Roguelike
 
                     else if (escolha == "4")
                     {
+                        //Ver quem fez o jogo
                         Console.WriteLine();
                         Console.WriteLine("Credits.");
                         Console.WriteLine("Pessoas que fizeram este trabalho");
@@ -95,6 +103,7 @@ namespace Roguelike
 
                     else if (escolha == "5")
                     {
+                        //Sair do jogo
                         Console.WriteLine();
                         Console.WriteLine("Escolheste sair do jogo.");
                         Console.WriteLine("Os inimigos estarão à tua espera.");
@@ -104,11 +113,19 @@ namespace Roguelike
 
                     else
                     {
+                        //O que irá acontecer se o utilizador colocar um número
+                        //que não seja de 1 a 5
                         Console.WriteLine();
                         Console.WriteLine("Opcção inválida");
                         Console.WriteLine();
                     }
                 }
+            }
+            if(args.Length >= 5)
+            {
+                //Caso o jogador coloque mais do 4 argumentos.
+                Console.WriteLine("São demasiados argumentos.");
+                Console.WriteLine("Só preciso de 5 argumentos");
             }
         }
     }    
